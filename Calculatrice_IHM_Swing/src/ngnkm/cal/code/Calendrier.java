@@ -1,6 +1,7 @@
 package ngnkm.cal.code;
 
 import java.awt.Color;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,6 +46,7 @@ public class Calendrier implements ActionListener {
 	@SuppressWarnings("rawtypes")
 	private JComboBox moisCbx, anneeCbx, jourCbx;
 	private JButton dateAjourdhui;
+	private JButton evennement;
 	
 	/**
 	 * Lancement de l'application
@@ -109,7 +111,7 @@ public class Calendrier implements ActionListener {
 
 		//Configuration du Frame
 		frame = new JFrame("Calendrier Gregorien");
-		frame.setBounds(100, 100, 486, 525);
+		frame.setBounds(100, 100, 550, 600);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -179,6 +181,27 @@ public class Calendrier implements ActionListener {
 			jourCbx.addItem(i);
 
 		}
-	}
+	
 
+
+  evennement = new JButton("Evennements");
+evennement.setBackground(Color.black);
+evennement.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		
+		frame.getContentPane().repaint();
+	     frame.add(evennement);
+		calPane.setBounds(10, 55, 452, 382);
+		frame.getContentPane().add(calPane);
+		
+	evennements ev = new evennements();
+	ev.setVisible(true);
+		
+	
 }
+
+});
+evennement.setBounds(175, 500, 127, 30);
+frame.getContentPane().add(evennement);
+}}
+
